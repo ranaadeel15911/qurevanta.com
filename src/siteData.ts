@@ -17,7 +17,7 @@ export const services = [
 
 const specialtyDetails = [
   ['Cardiology', 'Cardiac care teams need clean authorizations, accurate coding, and dependable follow-up across recurring visits.', 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=900&q=88'],
-  ['Orthopedics', 'Support procedures, imaging, therapy, and surgical episodes with a workflow that keeps every charge visible.', 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=88'],
+  ['Orthopedics', 'Support procedures, imaging, therapy, and surgical episodes with a workflow that keeps every charge visible.', 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=88'],
   ['Neurology', 'Coordinate complex visits, referrals, and documentation requirements with specialty-aware revenue operations.', 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=88'],
   ['Ophthalmology', 'Keep high-volume visits, procedures, and payer rules moving with clear claim and payment visibility.', 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=88'],
   ['Pain management', 'Bring authorization status, procedure documentation, and denial patterns into one practical workflow.', 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=88'],
