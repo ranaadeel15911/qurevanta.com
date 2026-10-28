@@ -1,0 +1,96 @@
+/* Dark theme requested by the client (reference: prima.systems).
+   Loaded after App.css; remove its import in App.tsx to return to the light theme. */
+:root { color: #e6ede8; background: #0b100f; color-scheme: dark; }
+body { background: #0b100f; }
+h1 em, h2 em, .detail-grid h2 em,
+.reference-hero h1 em, .reference-section-heading h2 em, .reference-split h2 em, .reference-team-grid h2 em { color: #d4f26d; }
+.eyebrow { color: #8fa39a; }
+.text-link, .reference-text-link { color: #6fdcb8; }
+.text-link:hover, .reference-text-link:hover { color: #d4f26d; }
+
+/* Header */
+.utility-bar { background: #060a09; border-bottom: 1px solid rgba(255,255,255,.06); }
+.site-nav { position: sticky; top: 0; z-index: 40; color: #f1f5f2; background: rgba(11,16,15,.94); border-bottom: 1px solid rgba(255,255,255,.08); backdrop-filter: blur(12px); }
+.site-nav .nav-links { color: #a9b8b1; }
+.site-nav .nav-links a:hover, .site-nav .nav-links a.active, .nav-dropdown.is-open > a { color: #d4f26d; }
+.mega-menu { background: #121918; border-top: 1px solid rgba(255,255,255,.07); box-shadow: 0 40px 80px rgba(0,0,0,.55); }
+@media (max-width: 900px) {
+  .site-nav, .site-nav .nav-links { background: #0f1514; box-shadow: 0 15px 30px rgba(0,0,0,.45); }
+  .site-nav .menu-toggle, .site-nav .nav-dropdown-toggle { color: #f1f5f2; }
+  .site-nav .nav-links a, .site-nav .mega-menu a, .site-nav .nav-links .mega-menu a:not(.nav-cta) { color: #dfe7e2; }
+  .site-nav .nav-links a:not(.nav-cta), .site-nav .nav-links .mega-menu a:not(.nav-cta), .nav-dropdown { border-color: rgba(255,255,255,.08); }
+  .mega-column h4 { color: #d4f26d; }
+  .mega-rcm h4 { color: #f5bd4f; }
+  .mega-menu a span { color: #6f8580; }
+}
+
+/* Home */
+.reference-home { color: #dfe7e2; background: #0b100f; }
+.reference-hero { background: radial-gradient(900px 520px at 88% 0%, rgba(19,140,79,.22), transparent 62%), radial-gradient(700px 420px at 0% 100%, rgba(14,69,81,.35), transparent 60%), #0b100f; }
+.reference-hero h1, .reference-section-heading h2, .reference-split h2, .reference-team-grid h2 { color: #f4f7f4; }
+.reference-hero-copy > p, .reference-split p, .reference-team-grid > div > p, .reference-section-heading > p { color: #9fb0a8; }
+.reference-kicker { color: #4fd18b; }
+.reference-hero-media img, .reference-team-media img { filter: saturate(.8) brightness(.92); }
+.reference-stat { background: #0e4551; box-shadow: 0 20px 40px rgba(0,0,0,.45); }
+.reference-intro, .reference-proof, .reference-teams { background: #0b100f; }
+.reference-services, .reference-specialties { background: #101716; }
+.reference-mission-card { background: #151d1c; }
+.reference-mission-card h3 { color: #f4f7f4; }
+.reference-mission-card p { color: #9fb0a8; }
+.reference-service-card { background: #151d1c; border: 1px solid rgba(255,255,255,.06); box-shadow: none; }
+.reference-service-card:hover { border-color: rgba(95,211,176,.35); }
+.reference-service-body h3 { color: #f4f7f4; }
+.reference-service-body p { color: #9fb0a8; }
+.reference-service-body > span { color: #6f8580; }
+.reference-service-icon { color: #6fdcb8; background: #1b3a31; }
+.reference-service-body > a { color: #6fdcb8; border-color: rgba(95,211,176,.35); }
+.reference-proof-card { background: #151d1c; }
+.reference-proof-card h3 { color: #f4f7f4; }
+.reference-proof-card p { color: #9fb0a8; }
+.reference-proof-card > svg, .reference-proof-card a { color: #6fdcb8; }
+.reference-final-cta { background: radial-gradient(700px 300px at 100% 0%, rgba(212,242,109,.08), transparent 60%), #0e3a43; }
+
+/* Our service teams accordion */
+.team-accordion, .team-item > button, .team-item ul { border-color: rgba(255,255,255,.1); }
+.team-item > button { color: #f1f5f2; }
+.team-item > button small { color: #7f938b; }
+.team-item > button svg { color: #6fdcb8; }
+.team-item.is-open > button { color: #d4f26d; }
+.team-item li a { color: #dfe7e2; background: #172120; }
+.team-item li a svg { color: #6fdcb8; }
+.team-item li a:hover { color: #fff; background: #0f806e; }
+
+/* Inner pages */
+.page-hero { background: radial-gradient(900px 480px at 100% 0%, rgba(15,128,110,.38), transparent 62%), #0d1312; border-bottom: 1px solid rgba(255,255,255,.06); }
+.detail-section, .directory-section, .prose-section, .audit-page { background: #0b100f; }
+.directory-card, .specialty-card > div { color: #f1f5f2; background: #151d1c; }
+.directory-card p { color: #9fb0a8; }
+.directory-card span { color: #6fae8a; }
+.directory-card b { color: #6fdcb8; }
+.directory-card:hover { background: #1d3a33; }
+.detail-grid > div > p, .prose-grid p { color: #9fb0a8; }
+.check-list { color: #cfe0d6; }
+.service-bullets li { color: #dfe7e2; }
+.related-services { border-color: rgba(255,255,255,.1); }
+.related-links a { color: #dfe7e2; border-color: rgba(255,255,255,.16); }
+.mini-cta { background: #0e3a43; }
+
+/* Audit / contact form */
+.audit-page .audit-layout, .audit-page .audit-copy h2 { color: #f4f7f4; }
+.audit-page .audit-copy > p { color: #9fb0a8; }
+.audit-form { color: #f1f5f2; background: #151d1c; }
+.audit-form label, .form-heading { color: #8fa39a; }
+.form-heading b { color: #f1f5f2; }
+.audit-form input, .audit-form select { color: #f1f5f2; border-bottom-color: rgba(255,255,255,.2); }
+.audit-form input:focus, .audit-form select:focus { border-color: #6fdcb8; }
+.audit-form option, .audit-form optgroup { color: #f1f5f2; background: #151d1c; }
+.form-success p, .audit-form small { color: #8fa39a; }
+
+/* Insights */
+.article-grid .article-card { color: #f1f5f2; background: #151d1c; }
+.article-meta { color: #8fa39a; }
+.article-meta svg { color: #6fdcb8; }
+
+.footer { background: #060a09; }
+.audit-form .button-dark { color: #fff; background: #138c4f; }
+.audit-form .button-dark:hover { background: #0e7442; }
