@@ -236,3 +236,27 @@
 .service-bullets li { color: #33443b; font: 500 16px/1.5 'DM Sans', sans-serif; letter-spacing: 0; text-transform: none; }
 .detail-grid:has(.service-bullets) h2 { font-size: clamp(34px, 3.6vw, 50px); letter-spacing: -1.5px; line-height: 1.05; }
 .reveal-heading .word { display: inline-block; }
+
+/* Contact details */
+.utility-inner a { display: inline-flex; align-items: center; gap: 6px; }
+.contact-list { display: grid; gap: 18px; margin: 30px 0 0; padding: 0; list-style: none; }
+.contact-list li { display: grid; grid-template-columns: 38px 1fr; column-gap: 14px; align-items: center; }
+.contact-list svg { grid-row: span 2; width: 38px; height: 38px; padding: 10px; color: #0f806e; background: rgba(15,128,110,.1); border-radius: 50%; }
+.contact-list span { color: #657168; font: 10px 'DM Mono', monospace; letter-spacing: .6px; text-transform: uppercase; }
+.contact-list a { color: inherit; font-size: 15px; font-weight: 600; line-height: 1.4; transition: color .15s ease; }
+.contact-list a:hover { color: #0f806e; }
+.contact-list-inline { grid-template-columns: repeat(3, auto); gap: 18px 36px; justify-content: start; }
+.contact-list-cards li { padding: 18px 20px; background: #fff; border: 1px solid #e4ebe6; }
+.footer .contact-list svg, .reference-final-cta .contact-list svg { color: #d4f26d; background: rgba(212,242,109,.1); }
+.footer .contact-list span, .reference-final-cta .contact-list span { color: #8fa39a; }
+.footer .contact-list a, .reference-final-cta .contact-list a { color: #f1f5f2; }
+.footer .contact-list a:hover, .reference-final-cta .contact-list a:hover { color: #d4f26d; }
+.footer-contact { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; padding: 34px 0; border-top: 1px solid rgba(255,255,255,.1); }
+.footer-contact > div span { display: block; margin-bottom: 8px; color: #d4f26d; font: 10px 'DM Mono', monospace; letter-spacing: .8px; text-transform: uppercase; }
+.footer-contact > div b { color: #f1f5f2; font-size: 22px; font-weight: 500; letter-spacing: -.5px; }
+.footer-contact .contact-list { margin: 0; justify-content: end; }
+.reference-final-cta .contact-list { margin-top: 26px; }
+.audit-call { margin-top: 28px; color: #657168; font-size: 14px; line-height: 1.6; }
+.audit-call a { color: #0f806e; font-weight: 600; }
+@media (max-width: 900px) { .footer-contact { grid-template-columns: 1fr; gap: 22px; }.footer-contact .contact-list { justify-content: start; }.contact-list-inline { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .contact-list-inline { grid-template-columns: 1fr; } }

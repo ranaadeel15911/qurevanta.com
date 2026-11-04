@@ -77,3 +77,12 @@ export const posts = [
   ['denial-reset', 'Five signals your denial workflow needs a reset', 'Operations', 'May 14, 2026', 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85'],
   ['reporting-feels', 'What good healthcare reporting feels like', 'Leadership', 'Apr 30, 2026', 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=85'],
 ]
+
+export const contact = {
+  email: 'info@qurevanta.com',
+  phone: '+1 (407) 970-3176',
+  phoneHref: 'tel:+14079703176',
+  company: 'QureVanta Healthcare',
+  address: 'Winter Springs, Florida 32708',
+  mapHref: 'https://www.google.com/maps/search/?api=1&query=Winter+Springs%2C+FL+32708',
+}

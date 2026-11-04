@@ -94,3 +94,12 @@ h1 em, h2 em, .detail-grid h2 em,
 .footer { background: #060a09; }
 .audit-form .button-dark { color: #fff; background: #138c4f; }
 .audit-form .button-dark:hover { background: #0e7442; }
+
+/* Contact details */
+.contact-list svg { color: #d4f26d; background: rgba(212,242,109,.1); }
+.contact-list span { color: #8fa39a; }
+.contact-list a { color: #f1f5f2; }
+.contact-list a:hover { color: #d4f26d; }
+.contact-list-cards li { background: #151d1c; border-color: rgba(255,255,255,.07); }
+.audit-call { color: #9fb0a8; }
+.audit-call a { color: #d4f26d; }

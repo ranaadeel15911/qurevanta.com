@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { FiArrowUpRight, FiBarChart2, FiCheck, FiChevronDown, FiFileText, FiLock, FiPieChart, FiShield, FiTrendingUp } from 'react-icons/fi'
+import { FiArrowUpRight, FiBarChart2, FiCheck, FiChevronDown, FiFileText, FiLock, FiMail, FiMapPin, FiPhone, FiPieChart, FiShield, FiTrendingUp } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { specialties } from './siteData'
+import { contact, specialties } from './siteData'
 
 const processSteps = [
   ['Patient scheduling', 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85'],
@@ -38,6 +38,14 @@ export function FAQSection() {
   return <section className="section faq-section"><div className="shell faq-grid"><div><div className="eyebrow"><span className="eyebrow-dot" /> Common questions</div><h2>Clarity starts with a <em>good question.</em></h2><p>These answers are written for the preview and can be updated with verified Qurevanta or Qurevanta policies before launch.</p></div><div className="faq-list">{questions.map((question, i) => <div className={`faq-item ${active === i ? 'active' : ''}`} key={question}><button onClick={() => setActive(active === i ? null : i)}>{question}<FiChevronDown /></button>{active === i && <p>Qurevanta brings experienced people, practical workflows, and reporting together to make this part of the revenue cycle easier to manage.</p>}</div>)}</div></div></section>
 }
 
-export function ContactPreview() { return <section className="contact-preview"><div className="shell contact-grid"><div><div className="eyebrow light"><span className="eyebrow-dot" /> Let’s talk</div><h2>Ready to make room for <em>what matters?</em></h2><p>Send a note and our team will respond with a clear next step.</p><div className="contact-details"><span><b>Phone</b>[PHONE PLACEHOLDER]</span><span><b>Email</b>hello@qurevanta.com</span><span><b>Hours</b>Mon–Fri · 9:00–17:00</span></div></div><Link className="button button-lime" to="/contact">Contact Qurevanta <FiArrowUpRight /></Link></div></section> }
+export function ContactPreview() { return <section className="contact-preview"><div className="shell contact-grid"><div><div className="eyebrow light"><span className="eyebrow-dot" /> Let’s talk</div><h2>Ready to make room for <em>what matters?</em></h2><p>Send a note and our team will respond with a clear next step.</p><ContactList /></div><Link className="button button-lime" to="/contact">Contact Qurevanta <FiArrowUpRight /></Link></div></section> }
+
+export function ContactList({ className = '' }: { className?: string }) {
+  return <ul className={`contact-list ${className}`}>
+    <li><FiPhone /><span>Call us</span><a href={contact.phoneHref}>{contact.phone}</a></li>
+    <li><FiMail /><span>Email</span><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+    <li><FiMapPin /><span>Office</span><a href={contact.mapHref} target="_blank" rel="noreferrer">{contact.company}<br />{contact.address}</a></li>
+  </ul>
+}
 
 export function ServiceDetailContent() { return <><div className="service-detail-panels"><div><h3>What this unlocks</h3><ul><li><FiCheck /> Fewer avoidable handoff delays</li><li><FiCheck /> More consistent follow-through</li><li><FiCheck /> Reporting your team can act on</li></ul></div><div><h3>How we work</h3><p>We begin by understanding the current state, then shape a practical workflow around your people, systems, and priorities.</p></div><div><h3>Useful measures</h3><div className="kpi-row"><span><b>[XX]</b>Days in A/R</span><span><b>[XX]%</b>Clean claims</span><span><b>[XX]</b>Denial trend</span></div></div></div></> }
