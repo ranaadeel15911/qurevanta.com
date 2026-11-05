@@ -72,12 +72,6 @@ export const headlines = [
   ['Every Dollar Tracked.', 'Every Step Owned.'],
 ] as const
 
-export const posts = [
-  ['quiet-cost', 'The quiet cost of an invisible revenue cycle', 'Revenue cycle', 'May 28, 2026', 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85'],
-  ['denial-reset', 'Five signals your denial workflow needs a reset', 'Operations', 'May 14, 2026', 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85'],
-  ['reporting-feels', 'What good healthcare reporting feels like', 'Leadership', 'Apr 30, 2026', 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=85'],
-]
-
 export const contact = {
   email: 'info@qurevanta.com',
   phone: '+1 (407) 970-3176',

@@ -1,33 +1,69 @@
-# React + TypeScript + Vite
+# QureVanta Healthcare — qurevanta.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Marketing site and resource hub for QureVanta Healthcare (medical billing and revenue cycle management).
+React 19 + Vite + TypeScript, deployed on Vercel.
 
-Currently, two official plugins are available:
+## Commands
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev       # local dev server
+npm run build     # type-check, build, then prerender every page (scripts/prerender.mjs)
+npm run lint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
-"# qurevanta.com" 
+## How pages reach Google
+
+`npm run build` renders every route to its own static HTML file (full content, title, description,
+canonical, Open Graph and JSON-LD), plus `404.html`, `sitemap.xml`, `robots.txt` and — when AdSense is
+configured — `ads.txt`. `vercel.json` turns on `cleanUrls`, so `dist/about.html` is served at `/about`.
+Unknown URLs get a real 404 status.
+
+Page titles and descriptions live in `src/seo.ts`. A new route needs an entry there (and in `App.tsx`).
+
+## Content
+
+- **Articles:** `src/content/blog/*.md` — frontmatter (`title`, `description`, `category`, `date`,
+  `image` = Unsplash photo ID, `services` = related service slugs) followed by Markdown. A new file
+  automatically appears on `/resources`, in the sitemap, and at `/resources/<file-name>`.
+- **About and legal pages:** `src/content/pages/*.md`.
+- **Service and specialty copy:** `src/siteData.ts` and `src/pageContent.ts`.
+
+Supported Markdown: `##`/`###` headings, paragraphs, `-` and `1.` lists, `>` notes, `**bold**`, `*italic*`,
+`[links](/path)`.
+
+## Environment variables
+
+See `.env.example`. Set them in Vercel → Settings → Environment Variables and redeploy.
+
+| Variable | Purpose |
+|---|---|
+| `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_API_KEY` | Form submissions are saved to the Firestore `leads` collection. Without them the form opens the visitor’s email app instead. |
+| `VITE_GOOGLE_SITE_VERIFICATION` | Search Console HTML-tag verification |
+| `VITE_ADSENSE_CLIENT` | AdSense publisher ID (`ca-pub-…`): adds the ownership meta tag and `ads.txt` |
+| `VITE_ADSENSE_SLOT_IN_ARTICLE`, `VITE_ADSENSE_SLOT_END_OF_ARTICLE` | Ad units shown on articles (after the 2nd paragraph, and at the end) |
+
+### Firebase setup (form)
+
+1. Create a project at console.firebase.google.com, add a **Web app**, and copy `projectId` and `apiKey`.
+2. Build → **Firestore Database** → Create database (production mode).
+3. Firestore → **Rules**: paste `firestore.rules` and publish. It only allows creating leads with the
+   expected fields; nothing can be read from the browser.
+4. Read submissions in Firestore → `leads`. For email alerts, install the "Trigger Email" extension
+   (requires the Blaze plan) or check the console regularly.
+
+## AdSense launch checklist
+
+1. Deploy, then confirm that `/about`, `/resources/cpt-99214-explained`, `/sitemap.xml` and `/robots.txt`
+   return 200 and that `/does-not-exist` returns 404.
+2. **Search Console:** add a Domain property for `qurevanta.com` (DNS verification), or set
+   `VITE_GOOGLE_SITE_VERIFICATION`. Submit `https://www.qurevanta.com/sitemap.xml`. Request indexing for
+   the homepage and key pages, then wait until pages show as indexed.
+3. **AdSense:** sign up at adsense.google.com with `qurevanta.com`. Set `VITE_ADSENSE_CLIENT` in Vercel,
+   redeploy, and choose the meta-tag verification method. Check that `/ads.txt` is live, then request review.
+4. **Privacy & messaging:** in AdSense, publish the Google-certified European regulations (GDPR) consent
+   message for EEA/UK/Swiss visitors.
+5. **After approval:** create two display ad units, set the slot variables, and redeploy. If you turn on
+   Auto ads, keep it limited to article pages (Auto ads → URL exclusions for `/services`, `/contact`,
+   `/free-audit`, and the homepage), so ads don’t compete with the lead forms.
+6. Keep publishing original articles regularly.
