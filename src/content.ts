@@ -28,7 +28,7 @@ export const articles: Article[] = Object.entries(articleFiles).map(([path, raw]
     description: data.description,
     category: data.category,
     date: data.date,
-    image: `https://images.unsplash.com/photo-${data.image}?auto=format&fit=crop&w=1200&q=80`,
+    image: data.image.startsWith('http') ? data.image : `https://images.unsplash.com/photo-${data.image}?auto=format&fit=crop&w=1200&q=80`,
     services: (data.services ?? '').split(',').map((item) => item.trim()).filter(Boolean),
     readMinutes: Math.max(1, Math.round(words / 230)),
     html: markdownToHtml(body),

@@ -24,7 +24,7 @@ Page titles and descriptions live in `src/seo.ts`. A new route needs an entry th
 ## Content
 
 - **Articles:** `src/content/blog/*.md` — frontmatter (`title`, `description`, `category`, `date`,
-  `image` = Unsplash photo ID, `services` = related service slugs) followed by Markdown. A new file
+  `image` = full image URL (e.g. Cloudinary) or an Unsplash photo ID, `services` = related service slugs) followed by Markdown. A new file
   automatically appears on `/resources`, in the sitemap, and at `/resources/<file-name>`.
 - **About and legal pages:** `src/content/pages/*.md`.
 - **Service and specialty copy:** `src/siteData.ts` and `src/pageContent.ts`.
