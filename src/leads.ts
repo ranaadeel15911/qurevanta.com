@@ -36,8 +36,8 @@ async function saveToFirestore(lead: Lead) {
 
 // Free email alert via Web3Forms (web3forms.com, free plan) — no paid Firebase plan needed.
 // The access key is created at web3forms.com for info@qurevanta.com and is safe to ship in the
-// browser. Until it is set, submissions are still saved to Firestore.
-const web3formsKey = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) || ''
+// browser (it can only send to the account inbox). VITE_WEB3FORMS_KEY can override it.
+const web3formsKey = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) || '8418128f-58d9-4ea8-aeac-5684529f7248'
 
 async function sendEmailAlert(lead: Lead) {
   if (!web3formsKey) throw new Error('Email alerts not configured')
