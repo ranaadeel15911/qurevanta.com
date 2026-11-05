@@ -46,6 +46,12 @@ try {
     git log --oneline "$before..$after"
     Set-Content -Path $marker -Value $today
     Write-Output 'Published.'
+    # Share on Facebook once credentials exist (see automation/README.md)
+    if (Test-Path (Join-Path $env:USERPROFILE '.qurevantaacebook.json')) {
+      try { & (Join-Path $PSScriptRoot 'post-to-facebook.ps1') } catch { Write-Output "Facebook post failed: $_" }
+    } else {
+      Write-Output 'Facebook credentials not set up yet; skipping social post.'
+    }
   } else {
     Write-Output 'No new commit was made today.'
   }
