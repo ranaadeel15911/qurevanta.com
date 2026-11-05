@@ -37,11 +37,15 @@ We do not sell your personal information.
 
 ## Where form submissions are stored
 
-Form submissions may be stored using **Google Firebase (Cloud Firestore)**, a service provided by Google LLC, and are accessible only to authorized QureVanta personnel. If our form storage is unavailable, your browser may instead open your email application so you can send your message to us directly.
+Form submissions may be stored using **Google Firebase (Cloud Firestore)**, a service provided by Google LLC, and are accessible only to authorized QureVanta personnel. If form storage is unavailable, your browser may instead open your email application with your message pre-filled, so you can send it to us directly.
 
 ## Cookies and similar technologies
 
-Cookies are small text files stored on your device. The Site itself does not use cookies for tracking. However, third-party services we use — in particular, advertising — may set cookies or use similar technologies, as described below. You can control or delete cookies through your browser settings.
+Cookies are small text files stored on your device. We and the third-party services we use — analytics and advertising — set cookies or use similar technologies, as described below. You can control or delete cookies through your browser settings.
+
+## Analytics
+
+We use **Google Analytics**, provided by Google LLC, to understand how visitors use the Site — for example, which pages are visited, how long visitors stay, and how they arrived. Google Analytics uses cookies and collects information such as your approximate location, device and browser type, and pages viewed. We use this information in aggregate to improve the Site. You can learn more in [How Google uses information from sites or apps that use our services](https://policies.google.com/technologies/partner-sites), and you can opt out by installing the [Google Analytics opt-out browser add-on](https://tools.google.com/dlpage/gaoptout).
 
 ## Advertising and Google AdSense
 
@@ -58,7 +62,7 @@ Visitors in the European Economic Area, the United Kingdom, and Switzerland will
 
 We share information only:
 
-- With service providers who help us operate the Site and our business, such as hosting (Vercel), form storage (Google Firebase), and advertising (Google), under their own privacy terms
+- With service providers who help us operate the Site and our business, such as hosting (Vercel), form storage (Google Firebase), analytics (Google Analytics), and advertising (Google), under their own privacy terms
 - When required by law, regulation, legal process, or governmental request
 - To protect the rights, property, or safety of QureVanta, our clients, or others
 - In connection with a merger, acquisition, or sale of assets, subject to this policy

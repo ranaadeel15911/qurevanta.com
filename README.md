@@ -38,7 +38,7 @@ See `.env.example`. Set them in Vercel → Settings → Environment Variables an
 
 | Variable | Purpose |
 |---|---|
-| `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_API_KEY` | Form submissions are saved to the Firestore `leads` collection. Without them the form opens the visitor’s email app instead. |
+| `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_API_KEY` | Override the Firebase project used for form submissions (defaults to `qurevanta`). Leads are saved to the Firestore `leads` collection. |
 | `VITE_GOOGLE_SITE_VERIFICATION` | Search Console HTML-tag verification |
 | `VITE_ADSENSE_CLIENT` | AdSense publisher ID (`ca-pub-…`): adds the ownership meta tag and `ads.txt` |
 | `VITE_ADSENSE_SLOT_IN_ARTICLE`, `VITE_ADSENSE_SLOT_END_OF_ARTICLE` | Ad units shown on articles (after the 2nd paragraph, and at the end) |
