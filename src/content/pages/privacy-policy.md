@@ -37,7 +37,7 @@ We do not sell your personal information.
 
 ## Where form submissions are stored
 
-Form submissions may be stored using **Google Firebase (Cloud Firestore)**, a service provided by Google LLC, and are accessible only to authorized QureVanta personnel. If form storage is unavailable, your browser may instead open your email application with your message pre-filled, so you can send it to us directly.
+Form submissions are stored using **Google Firebase (Cloud Firestore)**, a service provided by Google LLC, and a copy is delivered to our business inbox through **Web3Forms** (web3forms.com), an email forwarding service. Submissions are accessible only to authorized QureVanta personnel. If form storage is unavailable, your browser may instead open your email application with your message pre-filled, so you can send it to us directly.
 
 ## Cookies and similar technologies
 
@@ -62,7 +62,7 @@ Visitors in the European Economic Area, the United Kingdom, and Switzerland will
 
 We share information only:
 
-- With service providers who help us operate the Site and our business, such as hosting (Vercel), form storage (Google Firebase), analytics (Google Analytics), and advertising (Google), under their own privacy terms
+- With service providers who help us operate the Site and our business, such as hosting (Vercel), form storage (Google Firebase), form email delivery (Web3Forms), analytics (Google Analytics), and advertising (Google), under their own privacy terms
 - When required by law, regulation, legal process, or governmental request
 - To protect the rights, property, or safety of QureVanta, our clients, or others
 - In connection with a merger, acquisition, or sale of assets, subject to this policy

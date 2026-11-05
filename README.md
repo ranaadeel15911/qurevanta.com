@@ -49,8 +49,11 @@ See `.env.example`. Set them in Vercel → Settings → Environment Variables an
 2. Build → **Firestore Database** → Create database (production mode).
 3. Firestore → **Rules**: paste `firestore.rules` and publish. It only allows creating leads with the
    expected fields; nothing can be read from the browser.
-4. Read submissions in Firestore → `leads`. For email alerts, install the "Trigger Email" extension
-   (requires the Blaze plan) or check the console regularly.
+4. Read submissions in Firestore → `leads`.
+
+Each submission is also emailed to info@qurevanta.com through Web3Forms (free plan). Create an access key
+at web3forms.com with info@qurevanta.com and set it as `VITE_WEB3FORMS_KEY` (or as the default in
+`src/leads.ts`). Without a key, submissions are still saved to Firestore.
 
 ## AdSense launch checklist
 
