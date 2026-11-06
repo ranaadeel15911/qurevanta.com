@@ -35,6 +35,7 @@ CLOUDINARY_UPLOAD_PRESET=Qurenanta
    - "slug": the article slug
    - "socialTitle": a punchy version of the title for the image, max 60 characters (e.g. "Denial Code CO-16: What It Means and How to Fix It")
    - "caption": a Facebook caption of 60-110 words in plain, friendly language for US practice owners and billers: one opening line that hooks the reader (a question or a surprising practical point), a blank line, then 3 short takeaway lines each starting with the check-mark emoji, a blank line, then 3-5 relevant hashtags (e.g. #MedicalBilling #RevenueCycle). Do NOT include the article link (it is added automatically). No clickbait, no promises of results.
+   - "instagramCaption": the same message adapted for Instagram, 60-120 words: hook line, blank line, 3 check-mark takeaway lines, blank line, then 8-10 relevant hashtags (mix broad and niche, e.g. #MedicalBilling #MedicalCoding #RCM #HealthcareBusiness #PracticeManagement #DenialManagement #MedicalBiller #HealthcareAdmin). No links and no "link in bio" text (added automatically).
 
 ## Rules
 - Exactly one new article per run. Do not modify, rename or delete any other file in the repository.
