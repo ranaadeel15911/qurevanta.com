@@ -28,7 +28,10 @@ if (-not $igUserId) {
 Wait-ArticleLive $article.Url
 
 # 1) create the media container, 2) wait until Instagram has fetched the image, 3) publish
-$container = Invoke-GraphPost "$igUserId/media" @{ image_url = $article.ImageUrl; caption = $caption; access_token = $secrets.pageToken }
+# Parameters go in the query string (as in Instagram's docs): form bodies lose emoji on this endpoint
+$query = (@{ image_url = $article.ImageUrl; caption = $caption; access_token = $secrets.pageToken }.GetEnumerator() |
+  ForEach-Object { "$($_.Key)=$([uri]::EscapeDataString([string]$_.Value))" }) -join '&'
+$container = Invoke-RestMethod -Method Post -Uri "https://graph.facebook.com/$graphVersion/$igUserId/media?$query"
 for ($i = 0; $i -lt 20; $i++) {
   $status = Invoke-RestMethod -Uri "https://graph.facebook.com/$graphVersion/$($container.id)?fields=status_code&access_token=$($secrets.pageToken)"
   if ($status.status_code -eq 'FINISHED') { break }
