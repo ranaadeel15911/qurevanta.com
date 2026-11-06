@@ -12,6 +12,7 @@ const env = loadEnv('production', root, 'VITE_')
 const vite = await createServer({ root, mode: 'production', server: { middlewareMode: true }, appType: 'custom', logLevel: 'error' })
 const { pages, notFoundMeta, SITE_URL } = await vite.ssrLoadModule('/src/seo.ts')
 const { render } = await vite.ssrLoadModule('/src/entry-server.tsx')
+const { articles } = await vite.ssrLoadModule('/src/content.ts')
 
 const template = await readFile(join(dist, 'index.html'), 'utf8')
 const esc = (text) => String(text).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -56,6 +57,34 @@ await write(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map((p) => `  <url><loc>${SITE_URL}${p.path}</loc><lastmod>${p.jsonLd?.find((d) => d.datePublished)?.dateModified ?? today}</lastmod></url>`).join('\n')}
 </urlset>
+`)
+// RSS feed of the latest articles (used by feed readers, search engines and the LinkedIn/Zapier automation)
+const xml = (text) => String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+const rssItems = articles.slice(0, 30).map((a) => {
+  const url = `${SITE_URL}/resources/${a.slug}`
+  return `    <item>
+      <title>${xml(a.title)}</title>
+      <link>${url}</link>
+      <guid isPermaLink="true">${url}</guid>
+      <pubDate>${new Date(`${a.date}T12:00:00Z`).toUTCString()}</pubDate>
+      <category>${xml(a.category)}</category>
+      <description>${xml(a.description)}</description>
+      <media:content url="${xml(a.image)}" medium="image" />
+      <enclosure url="${xml(a.image)}" type="image/jpeg" length="0" />
+    </item>`
+}).join('\n')
+await write(join(dist, 'rss.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>QureVanta Healthcare — Medical Billing Guides</title>
+    <link>${SITE_URL}/resources</link>
+    <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Practical guides to medical billing, coding, credentialing, denial management, and compliance for US practices.</description>
+    <language>en-us</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${rssItems}
+  </channel>
+</rss>
 `)
 await write(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`)
 if (adsenseClient) await write(join(dist, 'ads.txt'), `google.com, ${adsenseClient.replace(/^ca-/, '')}, DIRECT, f08c47fec0942fa0\n`)
