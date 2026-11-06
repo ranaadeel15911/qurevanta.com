@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
 import { BrowserRouter, Link, NavLink, Route, Routes, useLocation, useParams } from 'react-router-dom'
-import { FiArrowRight, FiArrowUpRight, FiCheck, FiChevronDown, FiMail, FiMenu, FiPhone, FiX } from 'react-icons/fi'
+import { FiArrowRight, FiArrowUpRight, FiCheck, FiChevronDown, FiFacebook, FiMail, FiMenu, FiPhone, FiX } from 'react-icons/fi'
 import { AnimatePresence, motion } from 'framer-motion'
 import AOS from 'aos'
 import { contact, findService, serviceGroups, services, specialties, teams } from './siteData'
@@ -75,7 +75,7 @@ function Footer() {
   return <footer className="footer">
     <div className="shell footer-top"><Link className="brand" to="/" aria-label="QureVanta Healthcare home"><span>Q</span> Qurevanta</Link><p>Clarity for the business of care.</p><div className="footer-links"><Link to="/about">About</Link><Link to="/services">Services</Link><Link to="/teams">Our teams</Link><Link to="/specialties">Specialties</Link><Link to="/resources">Resources</Link><Link to="/tools/medical-billing-cost-calculator">Cost calculator</Link><Link to="/contact">Contact</Link></div></div>
     <div className="shell footer-contact"><div><span>Talk to our team</span><b>Let’s talk about your practice.</b></div><ContactList className="contact-list-inline" /></div>
-    <div className="shell footer-bottom"><span>© 2026 {contact.company}. All rights reserved.</span><span className="footer-legal"><Link to="/privacy-policy">Privacy Policy</Link> / <Link to="/terms">Terms</Link> / <Link to="/disclaimer">Disclaimer</Link></span><span>{contact.address}</span></div>
+    <div className="shell footer-bottom"><span>© 2026 {contact.company}. All rights reserved.</span><span className="footer-legal"><Link to="/privacy-policy">Privacy Policy</Link> / <Link to="/terms">Terms</Link> / <Link to="/disclaimer">Disclaimer</Link></span><a className="footer-social" href={contact.facebook} target="_blank" rel="noopener noreferrer" aria-label="QureVanta on Facebook"><FiFacebook /> Facebook</a></div>
   </footer>
 }
 

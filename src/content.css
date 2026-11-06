@@ -145,3 +145,6 @@ h2.eyebrow { margin: 0; font-weight: inherit; }
 .page-hero-long h1 { max-width: 760px; font-size: clamp(34px, 4.2vw, 58px); line-height: 1.05; }
 .aside-card h2, .calc-inputs h2, .calc-results h2, .related-articles > h2 { letter-spacing: -.01em; word-spacing: normal; }
 @media (max-width: 560px) { .page-hero-long h1 { font-size: 32px; } }
+
+.footer-social { display: inline-flex; align-items: center; gap: 7px; color: #d4f26d; }
+.footer-social:hover { color: #fff; }

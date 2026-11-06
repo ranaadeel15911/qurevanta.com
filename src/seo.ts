@@ -18,7 +18,7 @@ const clip = (text: string, max = 158) => {
 }
 const titleFor = (text: string) => (text.length > 60 ? text : `${text} | ${brand}`)
 
-const organization = { '@type': 'MedicalBusiness', '@id': `${SITE_URL}/#organization`, name: brand, url: `${SITE_URL}/`, logo: `${SITE_URL}/logo-512.png`, email: contact.email, telephone: '+1-407-970-3176', address: { '@type': 'PostalAddress', addressLocality: 'Winter Springs', addressRegion: 'FL', postalCode: '32708', addressCountry: 'US' } }
+const organization = { '@type': 'MedicalBusiness', '@id': `${SITE_URL}/#organization`, name: brand, url: `${SITE_URL}/`, logo: `${SITE_URL}/logo-512.png`, email: contact.email, telephone: '+1-407-970-3176', address: { '@type': 'PostalAddress', addressLocality: 'Winter Springs', addressRegion: 'FL', postalCode: '32708', addressCountry: 'US' }, sameAs: [contact.facebook] }
 const breadcrumbs = (trail: [string, string][]): JsonLd => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: trail.map(([name, path], index) => ({ '@type': 'ListItem', position: index + 1, name, item: `${SITE_URL}${path}` })) })
 
 const staticPages: PageMeta[] = [

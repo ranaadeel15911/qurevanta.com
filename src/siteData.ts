@@ -79,4 +79,5 @@ export const contact = {
   company: 'QureVanta Healthcare',
   address: 'Winter Springs, Florida 32708',
   mapHref: 'https://www.google.com/maps/search/?api=1&query=Winter+Springs%2C+FL+32708',
+  facebook: 'https://www.facebook.com/1357315860806292',
 }
